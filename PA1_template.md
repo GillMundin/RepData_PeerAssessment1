@@ -7,7 +7,7 @@ output:
 
 
 ## Loading and preprocessing the data
-Set the working directory, load the data and return a summary of the file to check it has loaded properly.
+Set the working directory.  Load the data and return a summary of the file to check it has loaded properly.
 
 
 ```r
@@ -40,7 +40,7 @@ steps <- with(data, tapply(steps,
                            sum))
 
 hist(steps,
-     main = "Histogram of total daily steps",
+     main = "Histogram of Total daily steps",
      xlab = "Total steps")
 ```
 
@@ -80,7 +80,7 @@ plot(df$interval,
      type = "l",
      main = "Average steps per 5 min interval",
      xlab = "Interval",
-     ylab = "Average steps")
+     ylab = "Average Steps")
 ```
 
 ![](PA1_template_files/figure-html/activity_pattern-1.png)<!-- -->
@@ -185,7 +185,7 @@ impsteps <- with(newdata, tapply(imputed,
                           
 hist(impsteps,
      main = "Histogram of total daily steps, using imputed data",
-     xlab = "Total steps")
+     xlab = "Total Steps")
 ```
 
 ![](PA1_template_files/figure-html/imputed_total_steps-1.png)<!-- -->
@@ -308,7 +308,7 @@ mylattice <- xyplot(steps ~ interval | flag,
                     layout = c(1, 2),
                     type = "l",
                     xlab = "Interval", 
-                    ylab = "Number of steps")
+                    ylab = "Number of Steps")
 
 mylattice
 ```
