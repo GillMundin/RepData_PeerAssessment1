@@ -22,7 +22,7 @@ summary(data)
 ## What is mean total number of steps taken per day?
 Calculate total daily steps using tapply on data, summing the steps for each unique date.  Generate a histogram using hist().  Generate mean and median using summary().
 
-```{r total steps}
+```{r total_steps}
 steps <- with(data, tapply(steps,
                            date,
                            sum))
@@ -46,7 +46,7 @@ summarysteps
 ## What is the average daily activity pattern?
 Use tapply() to calculate the average number of steps taken averaged across all days.  Process the output into a dataframe with an interval column.  Use plot() to generate the time series line plot.  Filter the 5 minute interval with the maximum number of steps using which().
 
-```{r activity pattern}
+```{r activity_pattern}
 pattern <- with(data, tapply(steps,
                              interval,
                              mean,
@@ -110,7 +110,7 @@ head(newdata, 3)
 
 ###Make histogram of new data
 
-```{r imputed total steps}
+```{r imputed_total_steps}
 
 impsteps <- with(newdata, tapply(imputed,
                                  date,
@@ -143,7 +143,7 @@ Finally, those averages must be plotted using the lattice package
 
 The information in the date column was converted to POSIXct, and then the day of the week identified with weekday()
 
-```{r weekend flag}
+```{r weekend_flag}
 newdata$date <- as.POSIXct(newdata$date)
 newdata$day <- weekdays(newdata$date)
 newdata <- newdata %>%  transmute(interval, date, imputed, day, flag = ifelse(day == "Saturday", "Weekend", ifelse(day == "Sunday", "Weekend", "Weekday")))
@@ -157,7 +157,7 @@ head(newdata, 3)
 
 Averages for each interval for weekend and weekdays were calculated using tapply, and transposed as a first step to a tidy dataset.
 
-```{r weekend averages}
+```{r weekend_averages}
 
 newpattern <- with(newdata, tapply(imputed, list(flag, interval), mean))
 newpattern <- as.data.frame(t(newpattern))
@@ -170,7 +170,7 @@ head(newpattern, 3)
 ###Tidy data
 The resulting matrix was processed into a tidy dataset with tidyr package.
 
-```{r tidy data}
+```{r tidy_data}
 library(tidyr)
 
 newpattern$interval <- as.integer(rownames(newpattern))
@@ -192,7 +192,7 @@ str(tidydf)
 
 The two panel plot can be created using the lattice package.
 
-```{r lattice plot}
+```{r lattice_plot}
 library(lattice)
 
 mylattice <- xyplot(steps ~ interval | flag, 

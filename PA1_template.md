@@ -44,7 +44,7 @@ hist(steps,
      xlab = "Total steps")
 ```
 
-![](PA1_template_files/figure-html/total steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/total_steps-1.png)<!-- -->
 
 ```r
 summarysteps <- summary(steps)
@@ -83,7 +83,7 @@ plot(df$interval,
      ylab = "Average steps")
 ```
 
-![](PA1_template_files/figure-html/activity pattern-1.png)<!-- -->
+![](PA1_template_files/figure-html/activity_pattern-1.png)<!-- -->
 
 ```r
 maxinterval <- df[which(df$pattern == max(df$pattern)), ]
@@ -188,7 +188,7 @@ hist(impsteps,
      xlab = "Total steps")
 ```
 
-![](PA1_template_files/figure-html/imputed total steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/imputed_total_steps-1.png)<!-- -->
 
 ```r
 summaryimpsteps <- summary(impsteps)
@@ -313,7 +313,7 @@ mylattice <- xyplot(steps ~ interval | flag,
 mylattice
 ```
 
-![](PA1_template_files/figure-html/lattice plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/lattice_plot-1.png)<!-- -->
 
 
 ####Weekday steps are higher on average between around 8 and 9 am.  The peak is not observed to the same extent at weekends.
